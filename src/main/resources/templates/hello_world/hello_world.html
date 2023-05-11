@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Showing details
+<br>
+<h2>Hello ,  <span data-th-text="${name}"></span></h2>
+<br>
+
+Send data via post method
+<form action="/helloPost" method="post">
+    <label for="namePost"></label>
+    <input type="text" name="name" id="namePost">
+    <button type="submit">Send Post</button>
+</form>
+<br>
+
+
+Send data via get method
+<form action="/helloGet" method="get">
+    <label for="nameGet"></label>
+    <input type="text" name="name" id="nameGet">
+    <button type="submit">SendGet</button>
+</form>
+</body>
+</html>
