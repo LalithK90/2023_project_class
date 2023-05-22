@@ -10,20 +10,61 @@ Showing details
 <h2>Hello ,  <span data-th-text="${name}"></span></h2>
 <br>
 
-Send data via post method
+<h2> Send data via post method </h2>
 <form action="/helloPost" method="post">
     <label for="namePost"></label>
     <input type="text" name="name" id="namePost">
     <button type="submit">Send Post</button>
 </form>
+
 <br>
 
 
-Send data via get method
+<h2>Send data via get method</h2>
 <form action="/helloGet" method="get">
     <label for="nameGet"></label>
     <input type="text" name="name" id="nameGet">
     <button type="submit">SendGet</button>
 </form>
+<br>
+
+<br>
+<h2>Result  ,  <span data-th-text="${result}"></span></h2>
+<br>
+
+
+<h2>Multiplication By two</h2>
+<form action="/multiplicationByTwo" method="post">
+    <label for="numberOne"> number one</label>
+    <input type="number" name="numberOne" id="numberOne">
+    <button type="submit">Send</button>
+</form>
+<br>
+
+
+<h2>Multiplication</h2>
+<form action="/multiplication" method="post">
+    <label for="numberOne1">Number One</label>
+    <input type="number" name="numberOne" id="numberOne1">
+    <br>
+    <label for="numberOne2">Number Two</label>
+    <input type="number" name="numberTwo" id="numberOne2">
+    <button type="submit">Send</button>
+</form>
+
+<br>
+
+
+<h2>Multiplication Using Java Class Implementation</h2>
+<form action="/multiplicationDTO" method="post">
+    <label for="numberOne3">Number One</label>
+    <input type="number" name="numberOne1" id="numberOne3">
+    <br>
+    <label for="numberOne4">Number Two</label>
+    <input type="number" name="numberTwo1" id="numberOne4">
+    <button type="submit">Send</button>
+</form>
+
+
 </body>
 </html>

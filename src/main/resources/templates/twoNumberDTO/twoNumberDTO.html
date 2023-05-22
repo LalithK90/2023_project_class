@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<br>
+<br>
+<h2>Result  ,  <span data-th-text="${result}"></span></h2>
+<br>
+
+
+<h2>Multiplication Using Java Class Implementation</h2>
+<form action="/new/multiplicationDTO" method="post" data-th-object="${targetObject}">
+  <label for="numberOne1">Number One</label>
+  <input type="number"  data-th-field="*{numberOne1}" />
+  <br>
+  <label for="numberOne2">Number Two</label>
+  <input type="number"  data-th-field="*{numberOne2}">
+  <button type="submit">Send</button>
+</form>
+
+</body>
+</html>
