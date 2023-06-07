@@ -1,4 +1,4 @@
-package lk.frist_day_project.frist_day.controller;
+package lk.frist_day_project.frist_day.no_db.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,4 +1,4 @@
-package lk.frist_day_project.frist_day.DTO;
+package lk.frist_day_project.frist_day.no_db.DTO;
 
 import lombok.Data;
 import lombok.Getter;
