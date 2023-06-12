@@ -41,15 +41,15 @@ public class TaskMMController {
     //to edit a particular task using task_id
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("addStatus", "true_one");
-        model.addAttribute("task", taskService.findById(id));
+              model.addAttribute("addStatus", false);
+        model.addAttribute("task", new TaskMM());
         return "relationship_sql/manytomany/task/task_one_one_add";
     }
 
     //to view details a particular task using task_id
     @GetMapping("/view/{id}")
     public String view(@PathVariable("id") Long id,Model model) {
-        model.addAttribute("user", taskService.findById(id));
+        model.addAttribute("task", taskService.findById(id));
         return "relationship_sql/manytomany/task/task_one_one_view";
     }
 

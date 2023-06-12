@@ -36,7 +36,7 @@
             <tbody>
             <tr data-th-each=" task, rowCount : ${tasks}">
                 <td data-th-text="${rowCount.count}"> </td>
-                <td data-th-text="${task.name}"></td>
+                <td data-th-text="${task.description}"></td>
                 <td>
                     <a data-th-href="${'/task_one_one/edit/'+task.id}" class="btn btn-info">Edit</a>
                     <a data-th-href="${'/task_one_one/view/'+task.id}" class="btn btn-success">View</a>

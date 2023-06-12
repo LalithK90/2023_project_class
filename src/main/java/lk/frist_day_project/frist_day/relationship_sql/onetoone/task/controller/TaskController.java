@@ -3,6 +3,7 @@ package lk.frist_day_project.frist_day.relationship_sql.onetoone.task.controller
 import lk.frist_day_project.frist_day.relationship_sql.onetoone.task.entity.Task;
 import lk.frist_day_project.frist_day.relationship_sql.onetoone.task.service.TaskService;
 import lk.frist_day_project.frist_day.relationship_sql.onetoone.task.entity.Task;
+import lk.frist_day_project.frist_day.relationship_sql.onetoone.user.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 public class TaskController {
 
     private final TaskService taskService;
-
+private final UserService userService;
     // to get all data from db to visualize in FE
     @GetMapping
     public String findAll(Model mode) {
@@ -25,8 +26,12 @@ public class TaskController {
     //get a form to add a new task to db
     @GetMapping("/add")
     public String form(Model model) {
-        model.addAttribute("addStatus", true);
+        model.addAttribute("addStatus", false);
         model.addAttribute("task", new Task());
+
+        model.addAttribute("users",userService.findAll());
+        //todo -  need to modify if a user has a task that user must no present on the FE
+
         return "relationship_sql/onetoone/task/task_one_one_add";
     }
 
@@ -40,15 +45,17 @@ public class TaskController {
     //to edit a particular task using task_id
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("addStatus", "true_one");
+          model.addAttribute("addStatus", true);
         model.addAttribute("task", taskService.findById(id));
+        model.addAttribute("users",userService.findAll());
+        //todo -  need to modify if a user has a task that user must no present on the FE
         return "relationship_sql/onetoone/task/task_one_one_add";
     }
 
     //to view details a particular task using task_id
     @GetMapping("/view/{id}")
     public String view(@PathVariable("id") Long id,Model model) {
-        model.addAttribute("user", taskService.findById(id));
+        model.addAttribute("task", taskService.findById(id));
         return "relationship_sql/onetoone/task/task_one_one_view";
     }
 

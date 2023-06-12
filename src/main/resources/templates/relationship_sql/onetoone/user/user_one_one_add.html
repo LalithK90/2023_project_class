@@ -35,6 +35,14 @@
                 <label for="name">Name</label>
                 <input type="text" class="form-control" data-th-field="*{name}" id="name" required placeholder="enter name">
             </div>
+            <div class="form-group">
+                <label for="">Task</label>
+                <select class="form-control" data-th-field="*{task}" id="">
+                    <option data-th-each="task :${tasks}"
+                            data-th-value="${task.id}"
+                            data-th-text="${task.description}"> </option>
+                </select>
+            </div>
             <button type="submit" class="btn btn-primary">Save</button>
         </form>
     </div>

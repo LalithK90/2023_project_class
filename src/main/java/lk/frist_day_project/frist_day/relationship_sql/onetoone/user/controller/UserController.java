@@ -1,5 +1,6 @@
 package lk.frist_day_project.frist_day.relationship_sql.onetoone.user.controller;
 
+import lk.frist_day_project.frist_day.relationship_sql.onetoone.task.service.TaskService;
 import lk.frist_day_project.frist_day.relationship_sql.onetoone.user.entity.User;
 import lk.frist_day_project.frist_day.relationship_sql.onetoone.user.service.UserService;
 import lombok.AllArgsConstructor;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     private final UserService userService;
+    private final TaskService taskService;
 
     // to get all data from db to visualize in FE
     @GetMapping
@@ -27,6 +29,7 @@ public class UserController {
     public String form(Model model) {
         model.addAttribute("addStatus", false);
         model.addAttribute("user", new User());
+        model.addAttribute("tasks" , taskService.findAll());
         return "relationship_sql/onetoone/user/user_one_one_add";
     }
 
@@ -42,6 +45,7 @@ public class UserController {
     public String edit(@PathVariable("id") Long id, Model model) {
         model.addAttribute("addStatus", true);
         model.addAttribute("user", userService.findById(id));
+        model.addAttribute("tasks" , taskService.findAll());
         return "relationship_sql/onetoone/user/user_one_one_add";
     }
 

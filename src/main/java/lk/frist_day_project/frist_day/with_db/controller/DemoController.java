@@ -32,7 +32,7 @@ public class DemoController {
 
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable("id") Long id,Model model){
-        model.addAttribute("addStatus", "true_one");
+        model.addAttribute("addStatus", true);
         model.addAttribute("demoEntity", demoService.findById(id));
         model.addAttribute("demoEntities",demoService.findAll());
         return "with_db/demo_entity";

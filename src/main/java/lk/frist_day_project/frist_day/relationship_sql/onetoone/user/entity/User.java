@@ -1,9 +1,7 @@
 package lk.frist_day_project.frist_day.relationship_sql.onetoone.user.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lk.frist_day_project.frist_day.relationship_sql.onetoone.task.entity.Task;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,5 +14,8 @@ public class User {
     private Long id;
 
     private String name;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private Task task;
 
 }

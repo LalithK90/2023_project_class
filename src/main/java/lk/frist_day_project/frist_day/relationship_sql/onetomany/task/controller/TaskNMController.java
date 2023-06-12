@@ -2,6 +2,7 @@ package lk.frist_day_project.frist_day.relationship_sql.onetomany.task.controlle
 
 import lk.frist_day_project.frist_day.relationship_sql.onetomany.task.entity.TaskNM;
 import lk.frist_day_project.frist_day.relationship_sql.onetomany.task.service.TaskNMService;
+import lk.frist_day_project.frist_day.relationship_sql.onetoone.user.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 public class TaskNMController {
 
     private final TaskNMService taskService;
+    private final UserService userService;
 
     // to get all data from db to visualize in FE
     @GetMapping
@@ -39,15 +41,16 @@ public class TaskNMController {
     //to edit a particular task using task_id
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("addStatus", "true_one");
+          model.addAttribute("addStatus", true);
         model.addAttribute("task", taskService.findById(id));
+        model.addAttribute("users",userService.findAll());
         return "relationship_sql/onetomany/task/task_one_one_add";
     }
 
     //to view details a particular task using task_id
     @GetMapping("/view/{id}")
     public String view(@PathVariable("id") Long id,Model model) {
-        model.addAttribute("user", taskService.findById(id));
+        model.addAttribute("task", taskService.findById(id));
         return "relationship_sql/onetomany/task/task_one_one_view";
     }
 

@@ -37,6 +37,11 @@
                 <input type="text" class="form-control" data-th-value="${user.name}" id="name" required
                        placeholder="enter name">
             </div>
+            <div class="form-group">
+                <label for="name">Task Description</label>
+                <input type="text" class="form-control" data-th-value="${user.task.description}" id="" required
+                       placeholder="enter name">
+            </div>
         </div>
         <div class="container">
             <a class="btn btn-success" href="/user_one_one" role="button">Back</a>
