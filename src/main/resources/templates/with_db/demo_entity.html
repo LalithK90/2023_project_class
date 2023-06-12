@@ -29,12 +29,12 @@
         </tr>
         </thead>
         <tbody>
-        <tr data-th-each=" demoEntity, rowCount : ${demoEntities}">
+        <tr data-th-each=" demo, rowCount : ${demoEntities}">
             <td data-th-text="${rowCount.count}"> </td>
-            <td data-th-text="${demoEntity.description}"></td>
+            <td data-th-text="${demo.description}"></td>
             <td>
-                <a data-th-href="${'/demo/edit/'+demoEntity.id}" class="btn btn-info">Edit</a>
-                <a data-th-href="${'/demo/delete/'+demoEntity.id}" class="btn btn-danger ml-2">Delete</a>
+                <a data-th-href="${'/demo/edit/'+demo.id}" class="btn btn-info">Edit</a>
+                <a data-th-href="${'/demo/delete/'+demo.id}" class="btn btn-danger ml-2">Delete</a>
             </td>
         </tr>
         </tbody>
@@ -48,7 +48,7 @@
 </h1>
 
 <div class="container">
-<form action="/demo" method="post" data-th-object="${demoEntity}">
+<form action="/demo" method="post" data-th-object="${task}">
     <div class="form-group" data-th-if="${addStatus == 'true_two'}">
         show two
     </div>

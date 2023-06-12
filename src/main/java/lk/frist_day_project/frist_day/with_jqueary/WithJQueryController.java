@@ -29,7 +29,6 @@ public class WithJQueryController {
     @PostMapping("/jq_data_db")
     @ResponseBody
     public DemoEntity postDataDb(@RequestParam("number") Long number){
-
         return demoService.findById(number);
     }
 

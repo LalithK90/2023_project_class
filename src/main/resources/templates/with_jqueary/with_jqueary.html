@@ -21,19 +21,19 @@
     <h1>Get </h1>
     <span id="result"></span>
     <br>
-    <button  id="buttonGet" class="btn btn-primary" >get result</button>
+    <button id="buttonGet" class="btn btn-primary">get result</button>
 </div>
 <div class="container">
     <h1>Post </h1>
     <span id="resultPost"></span>
     <br>
-    <button  id="buttonPost" class="btn btn-primary" >Post result</button>
+    <button id="buttonPost" class="btn btn-primary">Post result</button>
 </div>
 <div class="container">
     <h1>Post from DB</h1>
     <span id="resultDB"></span>
     <br>
-    <button  id="buttonPostDB" class="btn btn-primary" >Post result DB</button>
+    <button id="buttonPostDB" class="btn btn-primary">Post result DB</button>
 </div>
 <div class="container">
 
@@ -42,46 +42,47 @@
 
     <div class="form-group">
         <label for="demoId">Enter id</label>
-        <input type="number" name="" id="demoId" class="form-control" min="4" max="10" placeholder="" aria-describedby="helpId">
+        <input type="number" name="" id="demoId" class="form-control" min="4" max="10" placeholder=""
+               aria-describedby="helpId">
 
     </div>
     <br>
-    <button  id="buttonPostInput" class="btn btn-primary" >Post result DB</button>
+    <button id="buttonPostInput" class="btn btn-primary">Post result DB</button>
 
 </div>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script>
-    $(document).ready(function(){
-        $("#buttonGet").click(function(){
-            $.get("/jq_data", function(data, status){
+    $(document).ready(function () {
+        $("#buttonGet").click(function () {
+            $.get("/jq_data", function (data, status) {
                 alert("Data: " + data + "\nStatus: " + status);
                 $("#result").html(data);
             });
         });
 
-        $("#buttonPost").click(function(){
+        $("#buttonPost").click(function () {
             $.post("/jq_data",
                 {
                     number: 3,
                     city: "Duckburg"
                 },
-                function(data,status){
+                function (data, status) {
                     alert("Data: " + data + "\nStatus: " + status);
                     $("#resultPost").html(data);
                 });
         });
 
-        $("#buttonPostDB").click(function(){
+        $("#buttonPostDB").click(function () {
             $.post("/jq_data_db",
                 {
                     number: 7,
                 },
-                function(data,status){
+                function (data, status) {
                     console.log(status)
 
                     console.log(data.id);
@@ -90,18 +91,18 @@
                 });
         });
 
-        $("#buttonPostInput").click(function(){
-console.log($("#demoId").val());
+        $("#buttonPostInput").click(function () {
+            console.log($("#demoId").val());
             $.post("/jq_data_input",
                 {
                     id: $("#demoId").val(),
                 },
-                function(data,status){
+                function (data, status) {
                     console.log(status)
 
                     console.log(data.id);
                     console.log(data.description);
-                    $("#resultInput").html(data.description + "  Status : "+ status );
+                    $("#resultInput").html(data.description + "  Status : " + status);
                 });
         });
 
